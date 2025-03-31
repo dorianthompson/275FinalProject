@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Button, Form } from 'react-bootstrap';
 
@@ -27,9 +26,8 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Personal Career Quiz
         </p>
         <a
           className="App-link"
@@ -37,14 +35,11 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+        Learn React
         </a>
       </header>
       <Form>
-        <Form.Label>API Key:</Form.Label>
-        <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-        <br></br>
-        <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
+        <Button className="Submit-Button" onClick={handleSubmit}>Start Quiz</Button>
       </Form>
     </div>
   );
