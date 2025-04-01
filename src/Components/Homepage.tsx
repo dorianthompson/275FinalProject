@@ -1,7 +1,5 @@
 
-import React, { useState } from "react";
-import { Button, Row, Col } from "react-bootstrap";
-
+//Anderson
 export function Homepage() {
   const handleClick = () => {
     alert("Action");
