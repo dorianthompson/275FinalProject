@@ -19,8 +19,8 @@
 
 .top-left-btn {
   position: absolute;
-  top: 10px;  /* Distance from the top */
-  left: 10px; /* Distance from the left */
+  top: 10px;  
+  left: 10px; 
   padding: 5px 10px;
   font-size: 12px;
   background-color: blue;
