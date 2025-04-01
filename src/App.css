@@ -17,3 +17,19 @@
   color: #61dafb;
 }
 
+.top-left-btn {
+  position: absolute;
+  top: 10px;  /* Distance from the top */
+  left: 10px; /* Distance from the left */
+  padding: 5px 10px;
+  font-size: 12px;
+  background-color: blue;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.top-left-btn:hover {
+  background-color: darkblue;
+}
