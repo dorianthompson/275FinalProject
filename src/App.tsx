@@ -3,6 +3,9 @@ import './App.css';
 import { Button, Form } from 'react-bootstrap';
 import { Homepage }  from './Components/Homepage'
 import { HomeButton }  from './Components/HomeButton'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BasicQuiz } from './Components/BasicQuiz';
+import { DetailedQuiz } from './Components/DetailedQuiz';
 
 
  //local storage and API Key: key should be entered in by the user and will be stored in local storage (NOT session storage)
@@ -27,20 +30,19 @@ function App() {
      setKey(event.target.value);
    }
   return (
-    <div className="App">
-      
-      <header className="App-header"> 
-      <HomeButton></HomeButton>
-        <Homepage></Homepage>
-      </header>
-            <Form>
-            <Form.Label>API Key:</Form.Label>
-         <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-         <br></br>
-         <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-         <Button className="Submit-Button" onClick={handleSubmit}>Start Quiz</Button>
-      </Form>
-    </div>
+    <Router>
+      <div className="App">
+        <HomeButton />
+        <header className="App-header">
+          <Routes>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/basic" element={<BasicQuiz />} />
+            <Route path="/detailed" element={<DetailedQuiz />} />
+          </Routes>
+        </header>
+        <Form>{/* Your form content */}</Form>
+      </div>
+    </Router>
   );
 }
 
