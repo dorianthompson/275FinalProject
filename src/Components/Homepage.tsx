@@ -1,12 +1,14 @@
-
+import { useNavigate } from 'react-router-dom';
 //Anderson
 export function Homepage() {
-  const handleClick = () => {
-    alert("Action");
-  }; //Setup for later button behavior
+  const navigate = useNavigate();
 
-  const handleClickAgain = () => {
-    alert("Action 2");
+  const handleBasicQuizClick = () => {
+    navigate('/basic');
+  };
+
+  const handleDetailedQuizClick = () => {
+    navigate('/detailed');
   };
 
   return (
@@ -19,11 +21,11 @@ export function Homepage() {
           Personal Career Quiz
         </p> 
       
-      <button onClick={handleClick} className="btn btn-primary">
+      <button onClick={handleBasicQuizClick} className="btn btn-primary">
         Basic Quiz
       </button>
 
-      <button onClick={handleClickAgain} className="btn btn-secondary ml-2">
+      <button onClick={handleDetailedQuizClick} className="btn btn-secondary ml-2">
         Detailed Quiz
       </button>
     </div>
