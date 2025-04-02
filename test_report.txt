@@ -2,21 +2,68 @@
 > starter_helpi@0.1.0 test
 > react-scripts test --coverage
 
-PASS src/App.test.tsx
-  ✓ renders learn react link (37 ms)
+FAIL src/App.test.tsx
+  ✕ renders learn react link (43 ms)
 
---------------------|---------|----------|---------|---------|-------------------
-File                | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
---------------------|---------|----------|---------|---------|-------------------
-All files           |   28.57 |    16.66 |      20 |   28.57 |                   
- App.tsx            |      60 |       50 |   33.33 |      60 | 11,19-25          
- index.tsx          |       0 |      100 |     100 |       0 | 7-19              
- reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
---------------------|---------|----------|---------|---------|-------------------
-Test Suites: 1 passed, 1 total
-Tests:       1 passed, 1 total
+  ● renders learn react link
+
+    TestingLibraryElementError: Unable to find an element with the text: /learn react/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+
+    Ignored nodes: comments, script, style
+    [36m<body>[39m
+      [36m<div>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"App"[39m
+        [36m>[39m
+          [36m<header[39m
+            [33mclass[39m=[32m"App-header"[39m
+          [36m>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"top-left-btn"[39m
+            [36m>[39m
+              [0mHome[0m
+            [36m</button>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"button-container"[39m
+            [36m>[39m
+              [36m<img[39m
+                [33malt[39m=[32m"pic"[39m
+                [33msrc[39m=[32m"data:image/png;base64,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...
+
+       5 | test('renders learn react link', () => {
+       6 |   render(<App />);
+    >  7 |   const linkElement = screen.getByText(/learn react/i);
+         |                              ^
+       8 |   expect(linkElement).toBeInTheDocument();
+       9 | });
+      10 |
+
+      at Object.getElementError (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/config.js:37:19)
+      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:76:38
+      at node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:52:17
+      at getByText (node_modules/@testing-library/react/node_modules/@testing-library/dom/dist/query-helpers.js:95:19)
+      at Object.<anonymous> (src/App.test.tsx:7:30)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+---------------------|---------|----------|---------|---------|-------------------
+File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+---------------------|---------|----------|---------|---------|-------------------
+All files            |   37.03 |    16.66 |   33.33 |   37.03 |                   
+ src                 |   28.57 |    16.66 |      20 |   28.57 |                   
+  App.tsx            |      60 |       50 |   33.33 |      60 | 13,21-27          
+  index.tsx          |       0 |      100 |     100 |       0 | 7-19              
+  reportWebVitals.ts |       0 |        0 |       0 |       0 | 3-10              
+ src/Components      |   66.66 |      100 |      50 |   66.66 |                   
+  HomeButton.tsx     |     100 |      100 |     100 |     100 |                   
+  Homepage.tsx       |      60 |      100 |   33.33 |      60 | 5,9               
+---------------------|---------|----------|---------|---------|-------------------
+Test Suites: 1 failed, 1 total
+Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.548 s
+Time:        2.719 s
 Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
