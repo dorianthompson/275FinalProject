@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+//import React, {useState} from 'react';
 import './App.css';
 //import { Button, Form } from 'react-bootstrap';
 import { Homepage }  from './Components/Homepage'
@@ -40,6 +40,7 @@ function App() {
             <Route path="/detailed" element={<DetailedQuiz />} />
           </Routes>
         </header>
+
       </div>
     </Router>
   );
