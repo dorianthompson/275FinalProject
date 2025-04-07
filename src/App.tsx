@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './App.css';
 import { Button, Form} from 'react-bootstrap';
-import { Homepage }  from './Components/HomePage/Homepage'
+import { Homepage } from './Components/HomePage/Homepage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { BasicQuiz } from './Components/BasicQuiz/BasicQuiz';
 import { DetailedQuiz } from './Components/DetailedQuiz/DetailedQuiz';
