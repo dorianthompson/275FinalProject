@@ -1,4 +1,4 @@
-import { useNavigate } from 'react-router-dom';
+//import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import HomePageCard from '../HomePageCard/HomePageCard';
 import './HomePage.css'
@@ -9,15 +9,15 @@ import { Form, Button } from 'react-bootstrap';
 
 //Anderson
 export function Homepage() {
-  const navigate = useNavigate();
+  //const navigate = useNavigate();
 
-  const handleBasicQuizClick = () => {
+  /*const handleBasicQuizClick = () => {
     navigate('/basic');
   };
 
   const handleDetailedQuizClick = () => {
     navigate('/detailed');
-  };
+  };*/
 
   const basicAssesmentDescription = "Our Basic Career Assessment asks the user questions surrounding different work situations and gives them 5 options to best describe how they feel in each scenario."
   const detailedAssessmentDescription = "This interactive career quiz is designed to help you discover your strengths, interests, and ideal work environment through thoughtful, imaginative questions."
