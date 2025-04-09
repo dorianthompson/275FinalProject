@@ -1,5 +1,6 @@
 import Card from 'react-bootstrap/Card';
 import './HomePageCard.css'
+import { Container } from 'react-bootstrap';
 interface HomePageCardProps {
     title: string
     shortTitle: string
@@ -9,8 +10,8 @@ interface HomePageCardProps {
 
 export default function HomePageCard({ title, description, link, shortTitle}: HomePageCardProps) {
   return (
-    <div className='hpc-container'>
-      <Card style={{ width: '18rem', height: '21rem', fontSize: '20px' }}>
+    <Container className='hpc-container'>
+      <Card >
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>
@@ -19,6 +20,6 @@ export default function HomePageCard({ title, description, link, shortTitle}: Ho
         <Card.Link href={link}>{shortTitle}</Card.Link>
       </Card.Body>
     </Card>
-    </div>
+    </Container>
   )
 }
