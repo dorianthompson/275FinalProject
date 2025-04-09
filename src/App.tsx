@@ -1,15 +1,10 @@
-import React, {useState} from 'react';
 import './App.css';
 import { Homepage } from './Components/HomePage/Homepage';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { BasicQuiz } from './Components/BasicQuiz/BasicQuiz';
 import { DetailedQuiz } from './Components/DetailedQuiz/DetailedQuiz';
-import Container from 'react-bootstrap/Container';
 
 import NavBar from './Components/NavBar/NavBar';
-
-
- 
 
 function App() {
   return (
