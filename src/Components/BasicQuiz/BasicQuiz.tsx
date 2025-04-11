@@ -23,9 +23,14 @@ const BasicAssessmentQuestions = [
   'Very much like me'
  ]
  
+ //make sure you can only check one
+ //how to store data...dictionary key = idx, value which is checked
+ 
  
 export function BasicQuiz() {
     const progress = 40;
+    
+     
     return (
       <Container fluid>
         <h1 style={{textAlign: 'center', paddingTop: '7vh', paddingBottom: '3vh'}}>Basic Assessment Quiz</h1>
@@ -48,6 +53,8 @@ export function BasicQuiz() {
             style={{fontSize: '20px', marginLeft: '25px'}}
             id={choice}
             label={choice}
+            type="radio"
+            name="radio"
           />
         </div>
       ))}
