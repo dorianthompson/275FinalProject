@@ -15,9 +15,9 @@ function App() {
       
         <header className='App-header'>
           <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/basic" element={<BasicQuiz />} />
-            <Route path="/detailed" element={<DetailedQuiz />} />
+            <Route index element={<Homepage />} />
+            <Route path="basic" element={<BasicQuiz />} />
+            <Route path="detailed" element={<DetailedQuiz />} />
           </Routes>
           </header>
         </div>
