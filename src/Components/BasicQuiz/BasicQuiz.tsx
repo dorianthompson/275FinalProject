@@ -4,6 +4,7 @@ import Card from 'react-bootstrap/Card';
 import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Form from 'react-bootstrap/Form';
+import { useState } from "react";
 
 const BasicAssessmentQuestions = [
   'I thrive in a quiet work environment.',
@@ -23,9 +24,22 @@ const BasicAssessmentQuestions = [
   'Very much like me'
  ]
  
+ //make sure you can only check one
+ //how to store data...dictionary key = idx, value which is checked
+ //setProgess needs to check if that question has been selected if not then update the  progress to show completion
  
+ const checkedSet = new Set<number>([]);
 export function BasicQuiz() {
-    const progress = 40;
+    const [progress, setProgress] = useState<number>(0);
+
+    const handleClick = ((id:number) =>{
+      if(!checkedSet.has(id) ){
+        checkedSet.add(id);
+        setProgress(Math.floor((checkedSet.size / BasicAssessmentQuestions.length) * 100));
+      }
+    })
+    
+     
     return (
       <Container fluid>
         <h1 style={{textAlign: 'center', paddingTop: '7vh', paddingBottom: '3vh'}}>Basic Assessment Quiz</h1>
@@ -48,6 +62,10 @@ export function BasicQuiz() {
             style={{fontSize: '20px', marginLeft: '25px'}}
             id={choice}
             label={choice}
+            type="radio"
+            name="radio"
+            onClick={() => {
+              handleClick(idx+1)}}
           />
         </div>
       ))}
