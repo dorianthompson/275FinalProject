@@ -57,16 +57,17 @@ export function BasicQuiz() {
             </Card.Body>
             <Form>
       {BasicMultipleChoiceQuestions.map((choice) => (
-        <div key={choice} className="mb-3">
+        <div  style={{display: 'flex'}}key={choice} className="mb-3">
+          
           <Form.Check // prettier-ignore
             style={{fontSize: '20px', marginLeft: '25px'}}
             id={choice}
-            label={choice}
             type="radio"
-            name="radio"
+            name={`radio_${question}`}
             onClick={() => {
               handleClick(idx+1)}}
           />
+          <Form.Label style={{fontSize: '20px', marginLeft: '25px'}}>{choice}</Form.Label>
         </div>
       ))}
     </Form>
