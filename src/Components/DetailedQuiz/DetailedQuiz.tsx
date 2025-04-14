@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
+import { ChangeEvent, useState } from "react";
 
 const DetailedAssessmentQuestions = [
   'Imagine you had to teach a class on any subject or skill—what would it be, and what would make you an expert?',
@@ -15,9 +16,24 @@ const DetailedAssessmentQuestions = [
   'Describe your ideal workspace. What is there? How does it help you stay in work mode?',
   'If you could be any character in your favorite movie who would it be? Why did you choose that character?'
  ]
+
+ let detailedDictionary = new Map<number, string>();
+
+ 
+
  
 export function DetailedQuiz() {
-  const progress = 40;
+  const [text, setText] = useState<string>("");
+  const [progress, setProgress] = useState<number>(0);
+  
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setText(event.target.value)
+  }
+  const handleChangeSubmit = (idx: number, answer: string) => {
+    detailedDictionary.set(idx + 1, answer);
+    setProgress(Math.ceil((detailedDictionary.size / DetailedAssessmentQuestions.length)*100))
+   }
+  
     return (
       <Container fluid>
         <h1 style={{textAlign: 'center', paddingTop: '7vh', paddingBottom: '3vh'}}>Detailed Assessment Quiz</h1>
@@ -33,7 +49,7 @@ export function DetailedQuiz() {
                 {question}
               </Card.Text>
             </Card.Body>
-            <Form.Control as="textarea" placeholder="Answer here!" />
+            <Form.Control id={question} type="text"  value={text} onChange={handleChange} as="textarea" placeholder="Answer here!" />
             <Button style={{width: '30%', marginLeft: '17vw', marginTop: '1.5vh', marginBottom: '1.5vh'}} type="submit" variant="secondary" size="sm">Submit</Button>
           </Card>
           
