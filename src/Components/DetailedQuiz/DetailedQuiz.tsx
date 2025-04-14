@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Row from 'react-bootstrap/Row';
 import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
+import Button from 'react-bootstrap/Button';
 
 const DetailedAssessmentQuestions = [
   'Imagine you had to teach a class on any subject or skill—what would it be, and what would make you an expert?',
@@ -33,7 +34,9 @@ export function DetailedQuiz() {
               </Card.Text>
             </Card.Body>
             <Form.Control as="textarea" placeholder="Answer here!" />
+            <Button style={{width: '30%', marginLeft: '17vw', marginTop: '1.5vh', marginBottom: '1.5vh'}} type="submit" variant="secondary" size="sm">Submit</Button>
           </Card>
+          
         </Col>
       ))}
     </Row>
