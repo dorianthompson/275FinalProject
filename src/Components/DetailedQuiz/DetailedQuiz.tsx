@@ -17,22 +17,28 @@ const DetailedAssessmentQuestions = [
   'If you could be any character in your favorite movie who would it be? Why did you choose that character?'
  ]
 
- let detailedDictionary = new Map<number, string>();
+ /*let detailedDictionary = new Map<number, string>();
 
+ const initialDetailedState = {}
+ DetailedAssessmentQuestions.map((_,idx:number) =>{
+  initialDetailedState`Q${idx+1}` = ""
+ })*/   
  
 
  
 export function DetailedQuiz() {
   const [text, setText] = useState<string>("");
-  const [progress, setProgress] = useState<number>(0);
+  const progress = 40;
+  //const [progress, setProgress] = useState<number>(0);
+  
   
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     setText(event.target.value)
   }
-  const handleChangeSubmit = (idx: number, answer: string) => {
+  /*const handleChangeSubmit = (idx: number, answer: string) => {
     detailedDictionary.set(idx + 1, answer);
     setProgress(Math.ceil((detailedDictionary.size / DetailedAssessmentQuestions.length)*100))
-   }
+   }*/
   
     return (
       <Container fluid>
@@ -49,12 +55,12 @@ export function DetailedQuiz() {
                 {question}
               </Card.Text>
             </Card.Body>
-            <Form.Control id={question} type="text"  value={text} onChange={handleChange} as="textarea" placeholder="Answer here!" />
+            <Form.Control id={question} name={question}type="text"  value={text} onChange={handleChange} as="textarea" placeholder="Answer here!" />
             <Button style={{width: '30%', marginLeft: '17vw', marginTop: '1.5vh', marginBottom: '1.5vh'}} type="submit" variant="secondary" size="sm">Submit</Button>
           </Card>
           
-        </Col>
-      ))}
+        </Col>)
+)}
     </Row>
       </Container>
     );
