@@ -27,32 +27,6 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
------------------------------|---------|----------|---------|---------|-------------------
-File                         | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
------------------------------|---------|----------|---------|---------|-------------------
-All files                    |       0 |        0 |       0 |       0 |                   
- src                         |       0 |        0 |       0 |       0 |                   
-  App.tsx                    |       0 |      100 |       0 |       0 | 10                
-  index.tsx                  |       0 |      100 |     100 |       0 | 8-23              
-  reportWebVitals.ts         |       0 |        0 |       0 |       0 | 3-10              
- src/Components              |       0 |      100 |       0 |       0 |                   
-  HomeButton.tsx             |       0 |      100 |       0 |       0 | 4                 
- src/Components/BasicQuiz    |       0 |        0 |       0 |       0 |                   
-  BasicQuiz.tsx              |       0 |        0 |       0 |       0 | 9-68              
- src/Components/DetailedQuiz |       0 |      100 |       0 |       0 |                   
-  DetailedQuiz.tsx           |       0 |      100 |       0 |       0 | 9-28              
- src/Components/HomePage     |       0 |        0 |       0 |       0 |                   
-  Homepage.tsx               |       0 |        0 |       0 |       0 | 22-46             
- src/Components/HomePageCard |       0 |      100 |       0 |       0 |                   
-  HomePageCard.tsx           |       0 |      100 |       0 |       0 | 13                
- src/Components/NavBar       |       0 |      100 |       0 |       0 |                   
-  NavBar.tsx                 |       0 |      100 |       0 |       0 | 7                 
------------------------------|---------|----------|---------|---------|-------------------
-Test Suites: 1 failed, 1 total
-Tests:       0 total
-Snapshots:   0 total
-Time:        3.03 s
-Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
 declaring it in its dependencies. This is currently working because
@@ -65,3 +39,29 @@ ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
 your devDependencies to work around this error. This will make this message
 go away.[0m
   
+-----------------------------|---------|----------|---------|---------|-------------------
+File                         | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------------------|---------|----------|---------|---------|-------------------
+All files                    |       0 |        0 |       0 |       0 |                   
+ src                         |       0 |        0 |       0 |       0 |                   
+  App.tsx                    |       0 |      100 |       0 |       0 | 10                
+  index.tsx                  |       0 |      100 |     100 |       0 | 8-23              
+  reportWebVitals.ts         |       0 |        0 |       0 |       0 | 3-10              
+ src/Components              |       0 |      100 |       0 |       0 |                   
+  HomeButton.tsx             |       0 |      100 |       0 |       0 | 4                 
+ src/Components/BasicQuiz    |       0 |        0 |       0 |       0 |                   
+  BasicQuiz.tsx              |       0 |        0 |       0 |       0 | 4-112             
+ src/Components/DetailedQuiz |       0 |        0 |       0 |       0 |                   
+  DetailedQuiz.tsx           |       0 |        0 |       0 |       0 | 10-112            
+ src/Components/HomePage     |       0 |        0 |       0 |       0 |                   
+  Homepage.tsx               |       0 |        0 |       0 |       0 | 22-46             
+ src/Components/HomePageCard |       0 |      100 |       0 |       0 |                   
+  HomePageCard.tsx           |       0 |      100 |       0 |       0 | 13                
+ src/Components/NavBar       |       0 |      100 |       0 |       0 |                   
+  NavBar.tsx                 |       0 |      100 |       0 |       0 | 7                 
+-----------------------------|---------|----------|---------|---------|-------------------
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        3.486 s
+Ran all test suites.
