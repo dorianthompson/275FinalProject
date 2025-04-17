@@ -20,12 +20,14 @@ const DetailedAssessmentQuestions = [
 export function DetailedQuiz() {
   const [answers, setAnswers] = useState<{ [key: number]: string }>({});
   const [result, setResult] = useState<string>("");
-
+ 
+ 
   const handleChange = (idx: number, event: ChangeEvent<any>) => {
     const value = event.target.value;
     setAnswers(prev => ({ ...prev, [idx]: value }));
   };
-
+ 
+ 
   const formatPrompt = () => {
     let prompt = "Here are my responses to a detailed career assessment:\n\n";
     DetailedAssessmentQuestions.forEach((q, i) => {
@@ -35,16 +37,19 @@ export function DetailedQuiz() {
     prompt += "Based on these answers, suggest 2-3 specific careers that align with the person's interests and personality.";
     return prompt;
   };
-
+ 
+ 
   const handleSubmit = async () => {
     const key = JSON.parse(localStorage.getItem("MYKEY") || '""');
     if (!key) {
       alert("API Key not found. Please enter it on the homepage.");
       return;
     }
-
+ 
+ 
     const prompt = formatPrompt();
-
+ 
+ 
     try {
       const response = await fetch("https://api.openai.com/v1/chat/completions", {
         method: "POST",
@@ -60,24 +65,29 @@ export function DetailedQuiz() {
           ]
         })
       });
-
+ 
+ 
       const data = await response.json();
-
+ 
+ 
       if (!response.ok) {
         console.error("API response error:", data);
         setResult("API Error: " + (data.error?.message || response.statusText));
         return;
       }
-
+ 
+ 
       setResult(data.choices?.[0]?.message?.content || "No career suggestion generated.");
     } catch (error) {
       console.error("Fetch error:", error);
       setResult("An error occurred. Please try again later.");
     }
   };
-
+ 
+ 
   const progress = Math.floor((Object.keys(answers).length / DetailedAssessmentQuestions.length) * 100);
-
+ 
+ 
   return (
     <Container fluid>
       <h1 className="text-center mt-5 mb-3">Detailed Assessment Quiz</h1>
@@ -85,7 +95,8 @@ export function DetailedQuiz() {
         This interactive career quiz is designed to help you discover your strengths, interests, and ideal work environment through thoughtful, imaginative questions.
       </h2>
       <ProgressBar now={progress} label={`${progress}%`} className="mb-4" />
-
+ 
+ 
       <Row xs={1} md={2} className="g-4">
         {DetailedAssessmentQuestions.map((question, idx) => (
           <Col key={idx}>
@@ -105,7 +116,8 @@ export function DetailedQuiz() {
           </Col>
         ))}
       </Row>
-
+ 
+ 
       <div className="text-center mt-4">
         <Button
           onClick={handleSubmit}
@@ -115,7 +127,8 @@ export function DetailedQuiz() {
           Get Career Suggestion
         </Button>
       </div>
-
+ 
+ 
       {result && (
         <div className="mt-4 p-3 border rounded bg-light">
           <h3>Your Suggested Career:</h3>
@@ -124,4 +137,5 @@ export function DetailedQuiz() {
       )}
     </Container>
   );
-}
+ }
+ 
