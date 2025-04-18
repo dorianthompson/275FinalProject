@@ -58,7 +58,6 @@ export function BasicQuiz() {
             <Form>
       {BasicMultipleChoiceQuestions.map((choice) => (
         <div  style={{display: 'flex'}}key={choice} className="mb-3">
-          
           <Form.Check // prettier-ignore
             style={{fontSize: '20px', marginLeft: '25px'}}
             id={choice}
