@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import './HomePageCard.css'
@@ -10,15 +11,19 @@ interface HomePageCardProps {
 }
 
 export default function HomePageCard({ title, description, link, shortTitle}: HomePageCardProps) {
+  const [isHovered, setIsHovered] = useState(false);
+
   return (
     <Container className='hpc-container'>
-      <Card >
+      <Card style={{backgroundColor: '#00539F',color: '	#FFD200'}}>
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>
           {description}
         </Card.Text>
-        <Button variant="primary" size="lg"href={link}>{shortTitle}</Button>  
+        <Button className={`element-hpc ${isHovered ? 'element-hpc-hover' : ''}`}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)} variant="primary" size="lg"href={link}>{shortTitle}</Button>  
       </Card.Body>
     </Card>
     </Container>
