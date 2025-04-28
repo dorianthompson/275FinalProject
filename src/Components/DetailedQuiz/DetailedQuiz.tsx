@@ -137,6 +137,10 @@ export function DetailedQuiz() {
           <p>{result}</p>
         </div>
       )}
+      <footer style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '7%', width: '40%', backgroundColor:'#00539F', position: 'fixed', bottom: '0', right: 0, textAlign: 'center', color: '#FFD200'}}>
+        <h2>Progress: </h2>
+        <ProgressBar variant="warning" striped animated style={{width: '70%', color: '#FFD200'}} now={progress} label={`${progress}%`} className="mb-4" />
+        </footer>
     </Container>
   );
  }

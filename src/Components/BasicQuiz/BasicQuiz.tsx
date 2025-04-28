@@ -1,5 +1,6 @@
 import { ProgressBar, Container, Card, Col, Row, Form, Button } from "react-bootstrap";
 import { useState } from "react";
+import './BasicQuiz.css'
 
 const BasicAssessmentQuestions = [
   'I thrive in a quiet work environment.',
@@ -92,7 +93,7 @@ export function BasicQuiz() {
   return (
     <Container fluid>
       <h1 style={{color: '#00539F'}}className="text-center mt-4">Basic Career Assessment</h1>
-      <ProgressBar now={progress} label={`${progress}%`} className="mb-4" />
+      
       <Row xs={1} md={2} className="g-4">
         {BasicAssessmentQuestions.map((question, idx) => (
           <Col key={idx}>
@@ -133,6 +134,10 @@ export function BasicQuiz() {
           <p>{result}</p>
         </div>
       )}
+      <footer style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '7%', width: '40%', backgroundColor:'#00539F', position: 'fixed', bottom: '0', right: 0, textAlign: 'center', color: '#FFD200'}}>
+        <h2>Progress: </h2>
+        <ProgressBar variant="warning" striped animated style={{width: '70%', color: '#FFD200'}} now={progress} label={`${progress}%`} className="mb-4" />
+        </footer>
     </Container>
   );
 }
