@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import { ChangeEvent, useState } from "react";
+import { Modal } from "react-bootstrap";
 
 const DetailedAssessmentQuestions = [
   'Imagine you had to teach a class on any subject or skill—what would it be, and what would make you an expert?',
@@ -20,7 +21,10 @@ const DetailedAssessmentQuestions = [
 export function DetailedQuiz() {
   const [answers, setAnswers] = useState<{ [key: number]: string }>({});
   const [result, setResult] = useState<string>("");
- 
+  const [show, setShow] = useState(true);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
  
   const handleChange = (idx: number, event: ChangeEvent<any>) => {
     const value = event.target.value;
@@ -90,14 +94,19 @@ export function DetailedQuiz() {
  
   return (
     <Container fluid >
+      <Modal  show={show} onHide={handleClose}>
+        <Modal.Header style={{ backgroundColor: '#00539F', color: '#FFD200'}}closeButton>
+          <Modal.Title>Welcome to Our Detailed Career Assessment!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body style={{ backgroundColor: '#00539F', color: '#FFD200'}}>This interactive career quiz is designed to help you discover your strengths, interests, and ideal work environment through thoughtful, imaginative questions.</Modal.Body>
+        <Modal.Footer style={{ backgroundColor: '#00539F', color: '#FFD200'}}>
+          <Button style={{backgroundColor: '#FFD200', color: '#00539F'}} variant="secondary" onClick={handleClose}>
+            Lets Get Started!
+          </Button>
+        </Modal.Footer>
+      </Modal>
       <h1 style={{color: '#00539F'}} className="text-center mt-5 mb-3">Detailed Assessment Quiz</h1>
-      <h2 style={{color: '#00539F'}} className="text-center fs-5 mb-4">
-        This interactive career quiz is designed to help you discover your strengths, interests, and ideal work environment through thoughtful, imaginative questions.
-      </h2>
-      <div>
-      <ProgressBar now={progress} label={`${progress}%`} className="mb-4" />
-      </div>
-      
+      <br></br>
  
       <Row xs={1} md={2} className="g-4">
         {DetailedAssessmentQuestions.map((question, idx) => (
