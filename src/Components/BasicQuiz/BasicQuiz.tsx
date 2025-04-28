@@ -91,12 +91,12 @@ export function BasicQuiz() {
 
   return (
     <Container fluid>
-      <h1 className="text-center mt-4">Basic Career Assessment</h1>
+      <h1 style={{color: '#00539F'}}className="text-center mt-4">Basic Career Assessment</h1>
       <ProgressBar now={progress} label={`${progress}%`} className="mb-4" />
       <Row xs={1} md={2} className="g-4">
         {BasicAssessmentQuestions.map((question, idx) => (
           <Col key={idx}>
-            <Card>
+            <Card style={{backgroundColor: '#FFD200', color: '#00539F'}}>
               <Card.Body>
                 <Card.Title>{idx + 1}.</Card.Title>
                 <Card.Text>{question}</Card.Text>

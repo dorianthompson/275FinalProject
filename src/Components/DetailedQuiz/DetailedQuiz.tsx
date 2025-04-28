@@ -76,7 +76,7 @@ export function DetailedQuiz() {
         return;
       }
  
- 
+  
       setResult(data.choices?.[0]?.message?.content || "No career suggestion generated.");
     } catch (error) {
       console.error("Fetch error:", error);
@@ -89,18 +89,20 @@ export function DetailedQuiz() {
  
  
   return (
-    <Container fluid>
-      <h1 className="text-center mt-5 mb-3">Detailed Assessment Quiz</h1>
-      <h2 className="text-center fs-5 mb-4">
+    <Container fluid >
+      <h1 style={{color: '#00539F'}} className="text-center mt-5 mb-3">Detailed Assessment Quiz</h1>
+      <h2 style={{color: '#00539F'}} className="text-center fs-5 mb-4">
         This interactive career quiz is designed to help you discover your strengths, interests, and ideal work environment through thoughtful, imaginative questions.
       </h2>
+      <div>
       <ProgressBar now={progress} label={`${progress}%`} className="mb-4" />
- 
+      </div>
+      
  
       <Row xs={1} md={2} className="g-4">
         {DetailedAssessmentQuestions.map((question, idx) => (
           <Col key={idx}>
-            <Card>
+            <Card style={{backgroundColor: '#FFD200', color: '#00539F'}}>
               <Card.Body>
                 <Card.Title style={{ fontWeight: 'bold' }}>{idx + 1}.</Card.Title>
                 <Card.Text>{question}</Card.Text>

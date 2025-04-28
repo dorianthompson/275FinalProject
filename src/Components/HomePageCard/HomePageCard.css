@@ -1,4 +1,28 @@
 .hpc-container{
     padding-bottom: 15vh;
-    background-color: #ebd484; 
 }
+
+.element-hpc {
+    width: 110px;
+    height: 50px;
+    background-color: #FFD200;
+    transition: transform 0.3s ease;
+    color: #00539F;
+  }
+
+  .element-hpc-hover {
+     transform: scale(1.1);
+     color: #FFD200;
+  }
+
+  .btn-primary:hover{
+    color: #FFD200;
+    border: 1px solid #FFD200;
+    font-style: italic;
+    background-color: #00539F;
+  }
+
+  .btn-primary{
+    background-color: #FFD200;
+    color: #00539F;
+  }
