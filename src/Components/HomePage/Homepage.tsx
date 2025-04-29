@@ -33,10 +33,11 @@ export function Homepage() {
   const [key, setKey] = useState<string>(keyData); //for api key input
  
   //sets the local storage item to the api key the user inputed
-  function handleSubmit() {
-    setIsClicked(!isClicked);
-    localStorage.setItem(saveKeyData, JSON.stringify(key));
-    window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
+  const handleSubmit = async () => {
+      setIsClicked(!isClicked);
+      localStorage.setItem(saveKeyData, JSON.stringify(key));
+      window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
+    
   }
 
   //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
@@ -77,6 +78,7 @@ export function Homepage() {
           <Form.Control style ={{width:'60%'}} type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
           <Button size="lg"className="Submit-Button" onClick={handleSubmit} style={{marginRight: '2vw'}}>Submit</Button>
        </Form>
+       
     </Container>
   );
 }
