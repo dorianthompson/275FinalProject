@@ -73,9 +73,10 @@ export function Homepage() {
   <HomePageCard title='Detailed Career Assessment' shortTitle='Detailed' link='/detailed' description={basicAssesmentDescription}/>
   </Col>
   </Row>
-  <Form style={{display: 'flex', flexDirection:'column',justifyContent: 'center', gap: '15px', alignItems: 'center'}}>
+
+  <Form style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '7px'}}>
              <Form.Label style={{color: '#00539F'}}>API Key:</Form.Label>
-          <Form.Control style ={{width:'60%'}} type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
+          <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
           <Button size="lg"className="Submit-Button" onClick={handleSubmit} style={{marginRight: '2vw'}}>Submit</Button>
        </Form>
        

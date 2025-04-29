@@ -4,34 +4,38 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Container from 'react-bootstrap/Container';
 import { Link } from 'react-router-dom'; 
 
+import './Navbar.css'
+import { useState } from 'react';
+
 export default function NavBar() {
+  const [isHomeHovered, setIsHomeHovered] = useState(false);
+   const [isBasicHovered, setIsBasicHovered] = useState(false);
+   const [isDetailedHovered, setIsDetailedHovered] = useState(false);
   return (
     <div>
-      <Navbar expand="lg" className="bg-body-tertiary">
+      <Navbar style={{backgroundColor: "#00539F"}}>
         <Container fluid>
-          <Navbar.Toggle aria-controls="navbarScroll" />
-          <Navbar.Collapse id="navbarScroll">
             <Nav
-              className="me-auto my-2 my-lg-0"
-              style={{ maxHeight: '100px' }}
+              style={{ maxHeight: '100px', color: '#FFD200' }}
+              className={`me-auto`}
               navbarScroll
             >
-          
-              <Nav.Link as={Link} to="/">Home</Nav.Link>
 
-              <NavDropdown title="Assessments" id="navbarScrollingDropdown">
-                <NavDropdown.Item as={Link} to="/basic">
-                  Basic Assessment
-                </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/detailed">
-                  Detailed Assessment
-                </NavDropdown.Item>
-              </NavDropdown>
+              <Nav.Link as={Link} to="/" className={`element ${isHomeHovered ? 'elementHome-hover' : ''}`}
+           onMouseEnter={() => setIsHomeHovered(true)}
+           onMouseLeave={() => setIsHomeHovered(false)}style={{color: '#FFD200'}}>Home</Nav.Link>
+           <Nav.Link as={Link} to="/basic" className={`element ${isBasicHovered ? 'elementBasic-hover' : ''}`}
+           onMouseEnter={() => setIsBasicHovered(true)}
+           onMouseLeave={() => setIsBasicHovered(false)}style={{color: '#FFD200'}}
+         >Basic</Nav.Link>
+           <Nav.Link  as={Link} to="/detailed" className={`element ${isDetailedHovered ? 'elementDetailed-hover' : ''}`}
+           onMouseEnter={() => setIsDetailedHovered(true)}
+           onMouseLeave={() => setIsDetailedHovered(false)}style={{color: '#FFD200'}} >Detailed</Nav.Link>
 
             </Nav>
-          </Navbar.Collapse>
-        </Container>
+            </Container>
+
       </Navbar>
     </div>
   )
-}
+  }

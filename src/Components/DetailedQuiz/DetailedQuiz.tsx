@@ -7,7 +7,6 @@ import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import { ChangeEvent, useState } from "react";
 import { Modal } from "react-bootstrap";
-import Spinner from "react-bootstrap/Spinner";
 
 const DetailedAssessmentQuestions = [
   'Imagine you had to teach a class on any subject or skill—what would it be, and what would make you an expert?',
@@ -22,8 +21,7 @@ const DetailedAssessmentQuestions = [
 export function DetailedQuiz() {
   const [answers, setAnswers] = useState<{ [key: number]: string }>({});
   const [result, setResult] = useState<string>("");
-  const [show, setShow] = useState<boolean>(true);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [show, setShow] = useState(true);
 
   const handleClose = () => setShow(false);
   //const handleShow = () => setShow(true);
@@ -46,7 +44,6 @@ export function DetailedQuiz() {
  
  
   const handleSubmit = async () => {
-    setIsLoading(true)
     const key = JSON.parse(localStorage.getItem("MYKEY") || '""');
     if (!key) {
       alert("API Key not found. Please enter it on the homepage.");
@@ -75,8 +72,7 @@ export function DetailedQuiz() {
  
  
       const data = await response.json();
-      
-      setIsLoading(false);
+ 
  
       if (!response.ok) {
         console.error("API response error:", data);
@@ -87,7 +83,6 @@ export function DetailedQuiz() {
   
       setResult(data.choices?.[0]?.message?.content || "No career suggestion generated.");
     } catch (error) {
-      setIsLoading(false);
       console.error("Fetch error:", error);
       setResult("An error occurred. Please try again later.");
     }
@@ -135,24 +130,15 @@ export function DetailedQuiz() {
  
  
       <div className="text-center mt-4">
-        {!isLoading ? <Button 
-          onClick={handleSubmit} 
+        <Button
+          onClick={handleSubmit}
           variant="primary"
-          size="lg"
           disabled={Object.keys(answers).length !== DetailedAssessmentQuestions.length}
         >
           Get Career Suggestion
-        </Button> : <Button variant="primary" disabled>
-        <Spinner
-          as="span"
-          animation="border"
-          size="sm"
-          role="status"
-          aria-hidden="true"
-        />
-        <span className="visually-hidden">Loading...</span>
-      </Button>}
+        </Button>
       </div>
+ 
  
       {result && (
         <div className="mt-4 p-3 border rounded bg-light">
