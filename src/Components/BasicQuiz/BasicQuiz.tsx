@@ -28,7 +28,7 @@ export function BasicQuiz() {
   const [show, setShow] = useState(true);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  //const handleShow = () => setShow(true);
 
 
   const handleClick = (idx: number, choice: string) => {

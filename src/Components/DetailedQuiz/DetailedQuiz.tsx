@@ -24,7 +24,7 @@ export function DetailedQuiz() {
   const [show, setShow] = useState(true);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  //const handleShow = () => setShow(true);
  
   const handleChange = (idx: number, event: ChangeEvent<any>) => {
     const value = event.target.value;
