@@ -26,7 +26,7 @@ export function DetailedQuiz() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  //const handleShow = () => setShow(true);
  
   const handleChange = (idx: number, event: ChangeEvent<any>) => {
     const value = event.target.value;
