@@ -34,14 +34,18 @@ export function Homepage() {
  
   //sets the local storage item to the api key the user inputed
   function handleSubmit() {
+    setIsClicked(!isClicked);
     localStorage.setItem(saveKeyData, JSON.stringify(key));
     window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
+    
   }
 
   //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
   function changeKey(event: React.ChangeEvent<HTMLInputElement>) {
     setKey(event.target.value);
   }
+
+  const [isClicked, setIsClicked] = useState(false);
  
   return (
     <Container fluid>
@@ -60,7 +64,7 @@ export function Homepage() {
       <button onClick={handleDetailedQuizClick} className="btn btn-secondary ml-2">
         Detailed Quiz
   </button>*/}
-  <h1 style={{textAlign: 'center', paddingBottom: '15vh'}}>Career Assessments</h1>
+  <h1 style={{color: '#00539F' ,textAlign: 'center', paddingBottom: '15vh'}}>Career Assessments</h1>
   <Row xs={1} md={2} className="g-4">
   <Col>
   <HomePageCard title='Basic Career Assessment' shortTitle='Basic' link='/basic' description={detailedAssessmentDescription}/>
@@ -71,11 +75,11 @@ export function Homepage() {
   </Row>
 
   <Form>
-             <Form.Label>API Key:</Form.Label>
+             <Form.Label style={{color: '#00539F'}}>API Key:</Form.Label>
           <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
           <br></br>
-          <Button className="Submit-Button" onClick={handleSubmit}>Submit</Button>
-          <Button className="Submit-Button" onClick={handleSubmit}>Start Quiz</Button>
+          <Button size="lg"className="Submit-Button" onClick={handleSubmit} style={{marginRight: '2vw'}}>Submit</Button>
+          <Button size="lg" className="Submit-Button" onClick={handleSubmit}>Start Quiz</Button>
        </Form>
     </Container>
   );

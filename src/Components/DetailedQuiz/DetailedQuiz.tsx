@@ -6,6 +6,7 @@ import Form from 'react-bootstrap/Form';
 import Container from 'react-bootstrap/Container';
 import Button from 'react-bootstrap/Button';
 import { ChangeEvent, useState } from "react";
+import { Modal } from "react-bootstrap";
 
 const DetailedAssessmentQuestions = [
   'Imagine you had to teach a class on any subject or skill—what would it be, and what would make you an expert?',
@@ -20,7 +21,10 @@ const DetailedAssessmentQuestions = [
 export function DetailedQuiz() {
   const [answers, setAnswers] = useState<{ [key: number]: string }>({});
   const [result, setResult] = useState<string>("");
- 
+  const [show, setShow] = useState(true);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
  
   const handleChange = (idx: number, event: ChangeEvent<any>) => {
     const value = event.target.value;
@@ -76,7 +80,7 @@ export function DetailedQuiz() {
         return;
       }
  
- 
+  
       setResult(data.choices?.[0]?.message?.content || "No career suggestion generated.");
     } catch (error) {
       console.error("Fetch error:", error);
@@ -89,18 +93,25 @@ export function DetailedQuiz() {
  
  
   return (
-    <Container fluid>
-      <h1 className="text-center mt-5 mb-3">Detailed Assessment Quiz</h1>
-      <h2 className="text-center fs-5 mb-4">
-        This interactive career quiz is designed to help you discover your strengths, interests, and ideal work environment through thoughtful, imaginative questions.
-      </h2>
-      <ProgressBar now={progress} label={`${progress}%`} className="mb-4" />
- 
+    <Container fluid >
+      <Modal  show={show} onHide={handleClose}>
+        <Modal.Header style={{ backgroundColor: '#00539F', color: '#FFD200'}}closeButton>
+          <Modal.Title>Welcome to Our Detailed Career Assessment!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body style={{ backgroundColor: '#00539F', color: '#FFD200'}}>This interactive career quiz is designed to help you discover your strengths, interests, and ideal work environment through thoughtful, imaginative questions.</Modal.Body>
+        <Modal.Footer style={{ backgroundColor: '#00539F', color: '#FFD200'}}>
+          <Button style={{backgroundColor: '#FFD200', color: '#00539F'}} variant="secondary" onClick={handleClose}>
+            Lets Get Started!
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      <h1 style={{color: '#00539F'}} className="text-center mt-5 mb-3">Detailed Assessment Quiz</h1>
+      <br></br>
  
       <Row xs={1} md={2} className="g-4">
         {DetailedAssessmentQuestions.map((question, idx) => (
           <Col key={idx}>
-            <Card>
+            <Card style={{backgroundColor: '#FFD200', color: '#00539F'}}>
               <Card.Body>
                 <Card.Title style={{ fontWeight: 'bold' }}>{idx + 1}.</Card.Title>
                 <Card.Text>{question}</Card.Text>
@@ -135,6 +146,10 @@ export function DetailedQuiz() {
           <p>{result}</p>
         </div>
       )}
+      <footer style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '7%', width: '40%', backgroundColor:'#00539F', position: 'fixed', bottom: '0', right: 0, textAlign: 'center', color: '#FFD200'}}>
+        <h2>Progress: </h2>
+        <ProgressBar variant="warning" striped animated style={{width: '70%', color: '#FFD200'}} now={progress} label={`${progress}%`} className="mb-4" />
+        </footer>
     </Container>
   );
  }

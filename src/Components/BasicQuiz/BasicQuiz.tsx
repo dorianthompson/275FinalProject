@@ -1,5 +1,7 @@
 import { ProgressBar, Container, Card, Col, Row, Form, Button } from "react-bootstrap";
 import { useState } from "react";
+import './BasicQuiz.css'
+import { Modal } from "react-bootstrap";
 
 const BasicAssessmentQuestions = [
   'I thrive in a quiet work environment.',
@@ -23,6 +25,11 @@ export function BasicQuiz() {
   const [answers, setAnswers] = useState<{ [key: number]: string }>({});
   const [progress, setProgress] = useState<number>(0);
   const [result, setResult] = useState<string>("");
+  const [show, setShow] = useState(true);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
 
   const handleClick = (idx: number, choice: string) => {
     setAnswers(prev => {
@@ -91,12 +98,23 @@ export function BasicQuiz() {
 
   return (
     <Container fluid>
-      <h1 className="text-center mt-4">Basic Career Assessment</h1>
-      <ProgressBar now={progress} label={`${progress}%`} className="mb-4" />
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header style={{ backgroundColor: '#00539F', color: '#FFD200'}} closeButton>
+          <Modal.Title>Welcome to Our Basic Career Assessment!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body style={{ backgroundColor: '#00539F', color: '#FFD200'}}>Our Basic Career Assessment asks the user questions surrounding different work situations and gives them 5 options to best describe how they feel in each scenario. Questions like these allow us to get some basic knowledge about the user so we can start forming results on fields the user may best be suited to work in. Please select the answer for each question that best fits your personal interest or working style.</Modal.Body>
+        <Modal.Footer style={{ backgroundColor: '#00539F', color: '#FFD200'}}>
+          <Button style={{backgroundColor: '#FFD200', color: '#00539F'}} variant="secondary" onClick={handleClose}>
+            Lets Get Started!
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      <h1 style={{color: '#00539F'}}className="text-center mt-4">Basic Career Assessment</h1>
+      <br></br>
       <Row xs={1} md={2} className="g-4">
         {BasicAssessmentQuestions.map((question, idx) => (
           <Col key={idx}>
-            <Card>
+            <Card style={{backgroundColor: '#FFD200', color: '#00539F'}}>
               <Card.Body>
                 <Card.Title>{idx + 1}.</Card.Title>
                 <Card.Text>{question}</Card.Text>
@@ -133,6 +151,10 @@ export function BasicQuiz() {
           <p>{result}</p>
         </div>
       )}
+      <footer style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '7%', width: '40%', backgroundColor:'#00539F', position: 'fixed', bottom: '0', right: 0, textAlign: 'center', color: '#FFD200'}}>
+        <h2>Progress: </h2>
+        <ProgressBar variant="warning" striped animated style={{width: '70%', color: '#FFD200'}} now={progress} label={`${progress}%`} className="mb-4" />
+        </footer>
     </Container>
   );
 }

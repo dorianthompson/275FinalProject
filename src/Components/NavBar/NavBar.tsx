@@ -16,6 +16,7 @@ export default function NavBar() {
               style={{ maxHeight: '100px' }}
               navbarScroll
             >
+          
               <Nav.Link as={Link} to="/">Home</Nav.Link>
 
               <NavDropdown title="Assessments" id="navbarScrollingDropdown">

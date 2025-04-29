@@ -1,10 +1,11 @@
+import { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Container } from 'react-bootstrap';
-import { useNavigate } from 'react-router-dom'; // ✅ import useNavigate
+import { useNavigate } from 'react-router-dom'; 
 import './HomePageCard.css';
 
-// ✅ interface looks perfect
+
 interface HomePageCardProps {
   title: string;
   shortTitle: string;
@@ -13,10 +14,10 @@ interface HomePageCardProps {
 }
 
 export default function HomePageCard({ title, description, link, shortTitle }: HomePageCardProps) {
-  const navigate = useNavigate(); // ✅ create navigate function
+  const navigate = useNavigate();
 
   function handleClick() {
-    navigate(link); // ✅ when the button is clicked, navigate to the link
+    navigate(link);
   }
 
   return (
