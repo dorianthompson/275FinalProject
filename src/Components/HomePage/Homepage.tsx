@@ -37,7 +37,6 @@ export function Homepage() {
     setIsClicked(!isClicked);
     localStorage.setItem(saveKeyData, JSON.stringify(key));
     window.location.reload(); //when making a mistake and changing the key again, I found that I have to reload the whole site before openai refreshes what it has stores for the local storage variable
-    
   }
 
   //whenever there's a change it'll store the api key in a local state called key but it won't be set in the local storage until the user clicks the submit button
@@ -73,13 +72,10 @@ export function Homepage() {
   <HomePageCard title='Detailed Career Assessment' shortTitle='Detailed' link='/detailed' description={basicAssesmentDescription}/>
   </Col>
   </Row>
-
-  <Form>
+  <Form style={{display: 'flex', flexDirection:'column',justifyContent: 'center', gap: '15px', alignItems: 'center'}}>
              <Form.Label style={{color: '#00539F'}}>API Key:</Form.Label>
-          <Form.Control type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
-          <br></br>
+          <Form.Control style ={{width:'60%'}} type="password" placeholder="Insert API Key Here" onChange={changeKey}></Form.Control>
           <Button size="lg"className="Submit-Button" onClick={handleSubmit} style={{marginRight: '2vw'}}>Submit</Button>
-          <Button size="lg" className="Submit-Button" onClick={handleSubmit}>Start Quiz</Button>
        </Form>
     </Container>
   );

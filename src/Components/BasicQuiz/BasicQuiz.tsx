@@ -2,6 +2,7 @@ import { ProgressBar, Container, Card, Col, Row, Form, Button } from "react-boot
 import { useState } from "react";
 import './BasicQuiz.css'
 import { Modal } from "react-bootstrap";
+import Spinner from "react-bootstrap/Spinner";
 
 const BasicAssessmentQuestions = [
   'I thrive in a quiet work environment.',
@@ -26,9 +27,10 @@ export function BasicQuiz() {
   const [progress, setProgress] = useState<number>(0);
   const [result, setResult] = useState<string>("");
   const [show, setShow] = useState(true);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleClose = () => setShow(false);
-  const handleShow = () => setShow(true);
+  //const handleShow = () => setShow(true);
 
 
   const handleClick = (idx: number, choice: string) => {
@@ -51,6 +53,7 @@ export function BasicQuiz() {
   };
 
   const handleSubmit = async () => {
+    setIsLoading(true);
     const key = JSON.parse(localStorage.getItem("MYKEY") || '""');
     if (!key) {
       alert("API Key not found. Please enter it on the homepage.");
@@ -74,7 +77,8 @@ export function BasicQuiz() {
           ]
         })
       });
-
+     
+      setIsLoading(false);
       if (!response.ok) {
         const error = await response.json();
         console.error("API response error:", error);
@@ -91,6 +95,7 @@ export function BasicQuiz() {
       }
 
     } catch (error) {
+      setIsLoading(false);
       console.error("Fetch error:", error);
       setResult("An error occurred. Please try again later.");
     }
@@ -136,14 +141,25 @@ export function BasicQuiz() {
           </Col>
         ))}
       </Row>
+      
       <div className="text-center mt-4">
-        <Button 
+        {!isLoading ? <Button 
           onClick={handleSubmit} 
           variant="primary"
+          size="lg"
           disabled={Object.keys(answers).length !== BasicAssessmentQuestions.length}
         >
           Get Career Suggestion
-        </Button>
+        </Button> : <Button variant="primary" disabled>
+        <Spinner
+          as="span"
+          animation="border"
+          size="sm"
+          role="status"
+          aria-hidden="true"
+        />
+        <span className="visually-hidden">Loading...</span>
+      </Button>}
       </div>
       {result && (
         <div className="mt-4 p-3 border rounded bg-light">
@@ -151,7 +167,7 @@ export function BasicQuiz() {
           <p>{result}</p>
         </div>
       )}
-      <footer style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '7%', width: '40%', backgroundColor:'#00539F', position: 'fixed', bottom: '0', right: 0, textAlign: 'center', color: '#FFD200'}}>
+      <footer style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '7%', width: '37%', backgroundColor:'#00539F', position: 'fixed', bottom: '0', right: 0, textAlign: 'center', color: '#FFD200'}}>
         <h2>Progress: </h2>
         <ProgressBar variant="warning" striped animated style={{width: '70%', color: '#FFD200'}} now={progress} label={`${progress}%`} className="mb-4" />
         </footer>
