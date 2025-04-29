@@ -5,28 +5,58 @@
 FAIL src/App.test.tsx
   ● Test suite failed to run
 
-    Cannot find module 'react-router-dom' from 'src/App.tsx'
+    Cannot find module 'react-router-dom' from 'src/Components/HomePageCard/HomePageCard.tsx'
 
     Require stack:
+      src/Components/HomePageCard/HomePageCard.tsx
+      src/Components/HomePage/Homepage.tsx
       src/App.tsx
       src/App.test.tsx
 
-      1 | import './App.css';
-      2 | import { Homepage } from './Components/HomePage/Homepage';
-    > 3 | import { Routes, Route } from 'react-router-dom';
+      3 | import Button from 'react-bootstrap/Button';
+      4 | import { Container } from 'react-bootstrap';
+    > 5 | import { useNavigate } from 'react-router-dom'; 
         | ^
-      4 | import { BasicQuiz } from './Components/BasicQuiz/BasicQuiz';
-      5 | import { DetailedQuiz } from './Components/DetailedQuiz/DetailedQuiz';
-      6 |
+      6 | import './HomePageCard.css';
+      7 |
+      8 |
 
       at Resolver.resolveModule (node_modules/jest-resolve/build/resolver.js:324:11)
-      at Object.<anonymous> (src/App.tsx:3:1)
+      at Object.<anonymous> (src/Components/HomePageCard/HomePageCard.tsx:5:1)
+      at Object.<anonymous> (src/Components/HomePage/Homepage.tsx:3:1)
+      at Object.<anonymous> (src/App.tsx:2:1)
       at Object.<anonymous> (src/App.test.tsx:2:1)
       at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
       at runJest (node_modules/@jest/core/build/runJest.js:404:19)
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
+-----------------------------|---------|----------|---------|---------|-------------------
+File                         | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-----------------------------|---------|----------|---------|---------|-------------------
+All files                    |       0 |        0 |       0 |       0 |                   
+ src                         |       0 |        0 |       0 |       0 |                   
+  App.tsx                    |       0 |      100 |       0 |       0 | 9                 
+  index.tsx                  |       0 |      100 |     100 |       0 | 8-19              
+  reportWebVitals.ts         |       0 |        0 |       0 |       0 | 3-10              
+ src/Components              |       0 |      100 |       0 |       0 |                   
+  HomeButton.tsx             |       0 |      100 |       0 |       0 | 4                 
+ src/Components/BasicQuiz    |       0 |        0 |       0 |       0 |                   
+  BasicQuiz.tsx              |       0 |        0 |       0 |       0 | 6-130             
+ src/Components/DetailedQuiz |       0 |        0 |       0 |       0 |                   
+  DetailedQuiz.tsx           |       0 |        0 |       0 |       0 | 11-123            
+ src/Components/HomePage     |       0 |        0 |       0 |       0 |                   
+  Homepage.tsx               |       0 |        0 |       0 |       0 | 22-50             
+ src/Components/HomePageCard |       0 |      100 |       0 |       0 |                   
+  HomePageCard.tsx           |       0 |      100 |       0 |       0 | 17-23             
+ src/Components/NavBar       |       0 |      100 |       0 |       0 |                   
+  NavBar.tsx                 |       0 |      100 |       0 |       0 | 8                 
+-----------------------------|---------|----------|---------|---------|-------------------
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        3.171 s
+Ran all test suites.
 [0;33mOne of your dependencies, babel-preset-react-app, is importing the
 "@babel/plugin-proposal-private-property-in-object" package without
 declaring it in its dependencies. This is currently working because
@@ -39,29 +69,3 @@ ever be fixed. Add "@babel/plugin-proposal-private-property-in-object" to
 your devDependencies to work around this error. This will make this message
 go away.[0m
   
------------------------------|---------|----------|---------|---------|-------------------
-File                         | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
------------------------------|---------|----------|---------|---------|-------------------
-All files                    |       0 |        0 |       0 |       0 |                   
- src                         |       0 |        0 |       0 |       0 |                   
-  App.tsx                    |       0 |      100 |       0 |       0 | 10                
-  index.tsx                  |       0 |      100 |     100 |       0 | 8-23              
-  reportWebVitals.ts         |       0 |        0 |       0 |       0 | 3-10              
- src/Components              |       0 |      100 |       0 |       0 |                   
-  HomeButton.tsx             |       0 |      100 |       0 |       0 | 4                 
- src/Components/BasicQuiz    |       0 |        0 |       0 |       0 |                   
-  BasicQuiz.tsx              |       0 |        0 |       0 |       0 | 5-113             
- src/Components/DetailedQuiz |       0 |        0 |       0 |       0 |                   
-  DetailedQuiz.tsx           |       0 |        0 |       0 |       0 | 10-114            
- src/Components/HomePage     |       0 |        0 |       0 |       0 |                   
-  Homepage.tsx               |       0 |        0 |       0 |       0 | 22-50             
- src/Components/HomePageCard |       0 |        0 |       0 |       0 |                   
-  HomePageCard.tsx           |       0 |        0 |       0 |       0 | 14-26             
- src/Components/NavBar       |       0 |        0 |       0 |       0 |                   
-  NavBar.tsx                 |       0 |        0 |       0 |       0 | 9-30              
------------------------------|---------|----------|---------|---------|-------------------
-Test Suites: 1 failed, 1 total
-Tests:       0 total
-Snapshots:   0 total
-Time:        3.534 s
-Ran all test suites.
