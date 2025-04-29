@@ -1,36 +1,37 @@
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
 import Container from 'react-bootstrap/Container';
-import './Navbar.css'
-
-import { useState } from 'react';
+import { Link } from 'react-router-dom'; 
 
 export default function NavBar() {
-  const [isHomeHovered, setIsHomeHovered] = useState(false);
-  const [isBasicHovered, setIsBasicHovered] = useState(false);
-  const [isDetailedHovered, setIsDetailedHovered] = useState(false);
   return (
     <div>
-      <Navbar style={{backgroundColor: "#00539F"}}>
-    <Container fluid>
-        <Nav
-          style={{ maxHeight: '100px', color: '#FFD200' }}
-          className={`me-auto`}
-          navbarScroll
-        >
-          <Nav.Link className={`element ${isHomeHovered ? 'elementHome-hover' : ''}`}
-          onMouseEnter={() => setIsHomeHovered(true)}
-          onMouseLeave={() => setIsHomeHovered(false)}style={{color: '#FFD200'}} href="/">Home</Nav.Link>
-          <Nav.Link className={`element ${isBasicHovered ? 'elementBasic-hover' : ''}`}
-          onMouseEnter={() => setIsBasicHovered(true)}
-          onMouseLeave={() => setIsBasicHovered(false)}style={{color: '#FFD200'}}
-        href="/basic">Basic</Nav.Link>
-          <Nav.Link  className={`element ${isDetailedHovered ? 'elementDetailed-hover' : ''}`}
-          onMouseEnter={() => setIsDetailedHovered(true)}
-          onMouseLeave={() => setIsDetailedHovered(false)}style={{color: '#FFD200'}} href="/detailed">Detailed</Nav.Link>
-        </Nav>
+      <Navbar expand="lg" className="bg-body-tertiary">
+        <Container fluid>
+          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Collapse id="navbarScroll">
+            <Nav
+              className="me-auto my-2 my-lg-0"
+              style={{ maxHeight: '100px' }}
+              navbarScroll
+            >
+          
+              <Nav.Link as={Link} to="/">Home</Nav.Link>
+
+              <NavDropdown title="Assessments" id="navbarScrollingDropdown">
+                <NavDropdown.Item as={Link} to="/basic">
+                  Basic Assessment
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/detailed">
+                  Detailed Assessment
+                </NavDropdown.Item>
+              </NavDropdown>
+
+            </Nav>
+          </Navbar.Collapse>
         </Container>
-  </Navbar>
+      </Navbar>
     </div>
   )
 }
