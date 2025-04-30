@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button';
 import { ChangeEvent, useState } from "react";
 import { Modal } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
+import { useNavigate } from "react-router-dom";
 
 const DetailedAssessmentQuestions = [
   'Imagine you had to teach a class on any subject or skill—what would it be, and what would make you an expert?',
@@ -27,6 +28,8 @@ export function DetailedQuiz() {
 
   const handleClose = () => setShow(false);
   //const handleShow = () => setShow(true);
+
+  const navigate = useNavigate();
  
   const handleChange = (idx: number, event: ChangeEvent<any>) => {
     const value = event.target.value;
@@ -90,6 +93,8 @@ export function DetailedQuiz() {
       console.error("Fetch error:", error);
       setResult("An error occurred. Please try again later.");
     }
+
+    navigate('/report');
   };
  
  
@@ -137,6 +142,7 @@ export function DetailedQuiz() {
         {!isLoading ? <Button
           onClick={handleSubmit}
           variant="primary"
+          size="lg"
           disabled={Object.keys(answers).length !== DetailedAssessmentQuestions.length}
         >
           Get Career Suggestion
@@ -159,7 +165,7 @@ export function DetailedQuiz() {
           <p>{result}</p>
         </div>
       )}
-      <footer style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '7%', width: '40%', backgroundColor:'#00539F', position: 'fixed', bottom: '0', right: 0, textAlign: 'center', color: '#FFD200'}}>
+      <footer style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '7%', width: '37%', backgroundColor:'#00539F', position: 'fixed', bottom: '0', right: 0, textAlign: 'center', color: '#FFD200'}}>
         <h2>Progress: </h2>
         <ProgressBar variant="warning" striped animated style={{width: '70%', color: '#FFD200'}} now={progress} label={`${progress}%`} className="mb-4" />
         </footer>

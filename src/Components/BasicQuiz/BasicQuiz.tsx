@@ -3,6 +3,7 @@ import { useState } from "react";
 import './BasicQuiz.css'
 import { Modal } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
+import { useNavigate } from "react-router-dom";
 
 const BasicAssessmentQuestions = [
   'I thrive in a quiet work environment.',
@@ -30,6 +31,8 @@ export function BasicQuiz() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const handleClose = () => setShow(false);
+
+  const navigate = useNavigate();
 
 
   const handleClick = (idx: number, choice: string) => {
@@ -93,11 +96,15 @@ export function BasicQuiz() {
         setResult("Unexpected response structure from API.");
       }
 
+      navigate('/report', {state: {data: data}});
+
     } catch (error) {
       setIsLoading(false);
       console.error("Fetch error:", error);
       setResult("An error occurred. Please try again later.");
     }
+
+    
   };
 
   return (
