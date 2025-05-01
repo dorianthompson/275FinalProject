@@ -9,7 +9,9 @@ import NavBar from './Components/NavBar/NavBar';
 function App() {
   return (
     <div>
-      <NavBar />
+      <div id="Navbar">
+        <NavBar />
+      </div>
       <header className="App-header">
         <Routes>
           <Route path="/" element={<Homepage />} />

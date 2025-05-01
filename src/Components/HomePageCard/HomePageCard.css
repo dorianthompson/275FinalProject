@@ -26,3 +26,15 @@
     background-color: #FFD200;
     color: #00539F;
   }
+  .hpc-container .card {
+    border-radius: 20px;
+    background: #e0e5ec;
+    box-shadow: 9px 9px 16px #a3b1c6, -9px -9px 16px #ffffff;
+    transition: all 0.2s ease-in-out;
+    border: none;
+  }
+  
+  .hpc-container .card:hover {
+    transform: translateY(-4px);
+  }
+  
