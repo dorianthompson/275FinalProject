@@ -10,9 +10,10 @@ export default function NavBar() {
   const [isHomeHovered, setIsHomeHovered] = useState(false);
    const [isBasicHovered, setIsBasicHovered] = useState(false);
    const [isDetailedHovered, setIsDetailedHovered] = useState(false);
+
   return (
     <div>
-      <Navbar style={{backgroundColor: "#00539F"}}>
+      <Navbar className="Navbar" id="Navbar" style={{backgroundColor: "#00539F"}}>
         <Container fluid>
             <Nav
               style={{ maxHeight: '100px', color: '#FFD200' }}

@@ -5,6 +5,7 @@ import { Modal } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
 import { useNavigate } from "react-router-dom";
 
+
 const BasicAssessmentQuestions = [
   'I thrive in a quiet work environment.',
   'I thrive when working in a group.',
@@ -33,8 +34,7 @@ export function BasicQuiz() {
   const handleClose = () => setShow(false);
 
   const navigate = useNavigate();
-
-
+  
   const handleClick = (idx: number, choice: string) => {
     setAnswers(prev => {
       const updated = { ...prev, [idx]: choice };
@@ -109,6 +109,19 @@ export function BasicQuiz() {
 
   return (
     <Container fluid>
+      <h1 style={{color: '#00539F'}}className="text-center mt-4">Basic Career Assessment</h1>
+      <br></br>
+<div className="sticky-progress neu-progress-container">
+  <ProgressBar 
+    now={progress} 
+    label={`${progress}%`} 
+    variant="primary" 
+    animated 
+    striped 
+    className="neu-progress-bar"
+  />
+</div>
+
       <Modal show={show} onHide={handleClose}>
         <Modal.Header style={{ backgroundColor: '#00539F', color: '#FFD200'}} closeButton>
           <Modal.Title>Welcome to Our Basic Career Assessment!</Modal.Title>
@@ -120,8 +133,7 @@ export function BasicQuiz() {
           </Button>
         </Modal.Footer>
       </Modal>
-      <h1 style={{color: '#00539F'}}className="text-center mt-4">Basic Career Assessment</h1>
-      <br></br>
+      <div className="basic-quiz-container">
       <Row xs={1} md={2} className="g-4">
         {BasicAssessmentQuestions.map((question, idx) => (
           <Col key={idx}>
@@ -172,10 +184,7 @@ export function BasicQuiz() {
           <p>{result}</p>
         </div>
       )}
-      <footer style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', height: '7%', width: '37%', backgroundColor:'#00539F', position: 'fixed', bottom: '0', right: 0, textAlign: 'center', color: '#FFD200'}}>
-        <h2>Progress: </h2>
-        <ProgressBar variant="warning" striped animated style={{width: '70%', color: '#FFD200'}} now={progress} label={`${progress}%`} className="mb-4" />
-        </footer>
+      </div>
     </Container>
   );
 }
