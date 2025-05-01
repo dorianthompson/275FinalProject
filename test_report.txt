@@ -54,20 +54,20 @@ All files                    |       0 |        0 |       0 |       0 |
  src/Components              |       0 |      100 |       0 |       0 |                   
   HomeButton.tsx             |       0 |      100 |       0 |       0 | 4                 
  src/Components/BasicQuiz    |       0 |        0 |       0 |       0 |                   
-  BasicQuiz.tsx              |       0 |        0 |       0 |       0 | 8-141             
+  BasicQuiz.tsx              |       0 |        0 |       0 |       0 | 9-153             
  src/Components/CareerReport |       0 |      100 |       0 |       0 |                   
   CareerReport.tsx           |       0 |      100 |       0 |       0 | 4-18              
  src/Components/DetailedQuiz |       0 |        0 |       0 |       0 |                   
-  DetailedQuiz.tsx           |       0 |        0 |       0 |       0 | 13-132            
+  DetailedQuiz.tsx           |       0 |        0 |       0 |       0 | 13-142            
  src/Components/HomePage     |       0 |        0 |       0 |       0 |                   
   Homepage.tsx               |       0 |        0 |       0 |       0 | 22-50             
  src/Components/HomePageCard |       0 |        0 |       0 |       0 |                   
   HomePageCard.tsx           |       0 |        0 |       0 |       0 | 17-34             
  src/Components/NavBar       |       0 |        0 |       0 |       0 |                   
-  NavBar.tsx                 |       0 |        0 |       0 |       0 | 10-32             
+  NavBar.tsx                 |       0 |        0 |       0 |       0 | 10-33             
 -----------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.302 s
+Time:        3.486 s
 Ran all test suites.
