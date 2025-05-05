@@ -67,10 +67,10 @@ export function Homepage() {
   <h1 style={{color: '#00539F' ,textAlign: 'center', paddingBottom: '15vh'}}>Career Assessments</h1>
   <Row xs={1} md={2} className="g-4">
   <Col>
-  <HomePageCard title='Basic Career Assessment' shortTitle='Basic' link='/basic' description={detailedAssessmentDescription}/>
+  <HomePageCard key={key} title='Basic Career Assessment' shortTitle='Basic' link='/basic' description={detailedAssessmentDescription}/>
   </Col>
   <Col>
-  <HomePageCard title='Detailed Career Assessment' shortTitle='Detailed' link='/detailed' description={basicAssesmentDescription}/>
+  <HomePageCard key={key} title='Detailed Career Assessment' shortTitle='Detailed' link='/detailed' description={basicAssesmentDescription}/>
   </Col>
   </Row>
 

@@ -107,6 +107,8 @@ export function BasicQuiz() {
     
   };
 
+  
+
   return (
     <Container fluid>
       <Modal show={show} onHide={handleClose}>

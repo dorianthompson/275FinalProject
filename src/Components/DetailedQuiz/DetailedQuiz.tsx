@@ -88,13 +88,14 @@ export function DetailedQuiz() {
  
   
       setResult(data.choices?.[0]?.message?.content || "No career suggestion generated.");
+      navigate('/report', {state: {data: data}});
     } catch (error) {
       setIsLoading(false);
       console.error("Fetch error:", error);
       setResult("An error occurred. Please try again later.");
     }
 
-    navigate('/report');
+
   };
  
  
