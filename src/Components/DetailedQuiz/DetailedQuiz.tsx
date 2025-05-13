@@ -20,20 +20,35 @@ const DetailedAssessmentQuestions = [
   'If you could be any character in your favorite movie who would it be? Why did you choose that character?'
 ];
 
+let seenSet = new Set();
+
 export function DetailedQuiz() {
   const [answers, setAnswers] = useState<{ [key: number]: string }>({});
   const [result, setResult] = useState<string>("");
   const [show, setShow] = useState(true);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [progress, setProgress] = useState<number>(0)
 
   const handleClose = () => setShow(false);
-  //const handleShow = () => setShow(true);
-
+  
   const navigate = useNavigate();
  
   const handleChange = (idx: number, event: ChangeEvent<any>) => {
     const value = event.target.value;
     setAnswers(prev => ({ ...prev, [idx]: value }));
+    if(seenSet.has(idx)){
+      if(value.length < 10){
+        seenSet.delete(idx)
+        setProgress(Math.floor((seenSet.size / DetailedAssessmentQuestions.length) * 100));
+      }
+    } else {
+      if(value.length >= 10){
+        seenSet.add(idx)
+        setProgress(Math.floor((seenSet.size / DetailedAssessmentQuestions.length) * 100));
+      }
+    }
+
+    
   };
  
  
@@ -47,7 +62,7 @@ export function DetailedQuiz() {
 
 For each career path, provide:
 - Title
-- A brief description (1-2 sentences max)
+- A brief description (2-4 sentences max)
 - Estimated salary range (in USD)
 - A match percentage (0–100%)
 
@@ -107,23 +122,22 @@ Important: Do NOT include markdown code block syntax like triple backticks. Just
  
   
       setResult(data.choices?.[0]?.message?.content || "No career suggestion generated.");
+      navigate('/report', {state: {data}});
     } catch (error) {
       setIsLoading(false);
       console.error("Fetch error:", error);
       setResult("An error occurred. Please try again later.");
     }
 
-    navigate('/report');
+    
   };
  
- 
-  const progress = Math.floor((Object.keys(answers).length / DetailedAssessmentQuestions.length) * 100);
  
  
   return (
     <Container fluid >
 
-      <Modal  show={show} onHide={handleClose}>
+      <Modal  show={show} onHide={handleClose} backdrop="static">
         <Modal.Header style={{ backgroundColor: '#00539F', color: '#FFD200'}}closeButton>
           <Modal.Title>Welcome to Our Detailed Career Assessment!</Modal.Title>
         </Modal.Header>
@@ -157,9 +171,14 @@ Important: Do NOT include markdown code block syntax like triple backticks. Just
                   as="textarea"
                   rows={3}
                   placeholder="Answer here!"
-                  value={answers[idx] || ""}
+                  value={answers[idx]}
                   onChange={(e) => handleChange(idx, e)}
+                  isValid={seenSet.has(idx) && answers[idx].length >= 10}
+                  isInvalid={(answers[idx] != undefined) && answers[idx].length <= 10}
                 />
+                <Form.Control.Feedback type="invalid" tooltip>
+        10 Character Minimum!
+      </Form.Control.Feedback>
               </Card.Body>
             </Card>
           </Col>
