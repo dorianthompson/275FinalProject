@@ -5,7 +5,6 @@ import { Modal } from "react-bootstrap";
 import Spinner from "react-bootstrap/Spinner";
 import { useNavigate } from "react-router-dom";
 
-
 const BasicAssessmentQuestions = [
   'I thrive in a quiet work environment.',
   'I thrive when working in a group.',
@@ -50,7 +49,26 @@ export function BasicQuiz() {
       const question = BasicAssessmentQuestions[i];
       prompt += `Q${i + 1}: ${question}\nA: ${ans}\n\n`;
     });
-    prompt += "Based on these answers, suggest suitable career paths.";
+    prompt += `Based on these answers, suggest 6 specific career paths.
+
+For each career path, provide:
+- Title
+- A brief description (1-2 sentences max)
+- Estimated salary range (in USD)
+- A match percentage (0–100%)
+
+Return the results as a JSON array sorted by match percentage (descending).
+Return the results as a JSON array like this:
+[
+  {
+    "title": "Software Engineer",
+    "description": "...",
+    "salary_range": "$80,000 - $120,000",
+    "match_percentage": 90
+  }
+]
+
+Important: Do NOT include markdown code block syntax like triple backticks. Just return raw JSON text.`;
     return prompt;
   };
 

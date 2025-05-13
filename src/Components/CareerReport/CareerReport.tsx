@@ -1,24 +1,48 @@
-import { useLocation } from 'react-router-dom'
+import { useLocation } from 'react-router-dom';
+import { Container, Card, Row, Col } from 'react-bootstrap';
+import './CareerReport.css';
 
 function CareerReport() {
-    const {state} = useLocation();
-    console.log(state.data.choices[0]);
+  const { state } = useLocation();
+  let raw = state.data.choices[0]?.message?.content || '';
+  raw = raw.trim();
+  if (raw.startsWith('```')) {
+    raw = raw.replace(/^```[a-z]*\n?/, '').replace(/```$/, '');
+  }
 
-    function splitString(text: string): string[] {
-      return text.split(/\d\./);
-    }
-    
-    const text = state.data.choices[0].message.content;
-    const result = splitString(text);
-    console.log(result)
+  let results: any[] = [];
+  try {
+    results = JSON.parse(raw);
+  } catch (err) {
+    return (
+      <Container className="mt-5">
+        <h2>Could not parse results</h2>
+        <pre>{raw}</pre>
+      </Container>
+    );
+  }
+
   return (
-    <div>
-      <h1 style={{textAlign: 'center', marginBottom: '2vh', marginTop: '-2vh'}}>Your Career Report</h1>
-      <h2 style={{marginBottom: '2vh'}}>{result[0]}</h2>
-      <ol>{result.slice(1).map((choice) => <li>{choice + "\n"}</li>)}</ol>
-      
-    </div>
-  )
+    <Container className="report-container mt-5">
+      <h1 className="text-center mb-4">Your Career Report</h1>
+      <Row xs={1} md={2} lg={2} className="g-4">
+        {results.map((career, index) => (
+          <Col key={index}>
+            <Card className="career-card">
+              <Card.Body>
+                <Card.Title className="d-flex justify-content-between align-items-center">
+                  {career.title}
+                  <span className="match-score">{career.match_percentage}% match</span>
+                </Card.Title>
+                <Card.Text>{career.description}</Card.Text>
+                <Card.Text className="salary">💰 {career.salary_range}</Card.Text>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </Container>
+  );
 }
 
-export default CareerReport
+export default CareerReport;
