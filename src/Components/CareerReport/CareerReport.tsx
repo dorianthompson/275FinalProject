@@ -1,7 +1,6 @@
 import { useLocation } from 'react-router-dom';
-import { Container, Card, Row, Col } from 'react-bootstrap';
+import { Container, Card,Col } from 'react-bootstrap';
 import './CareerReport.css';
-import { useState } from 'react';
 import Accordion from 'react-bootstrap/Accordion';
 
 
@@ -33,8 +32,6 @@ function CareerReport() {
   return (
     <Container className="report-container mt-5">
       <h1 className="text-center mb-4">Your Career Results Are In!</h1>
-      {/*<Row xs={1} md={2} lg={2} className="g-4">*/}
-      
         {results.map((career, index) => (
           <Col key={index}>
             <Card className="career-card">
@@ -67,8 +64,6 @@ function CareerReport() {
       
        
         ))}
-        
-    {/*</Row>*/}
     </Container>
   );
 }
