@@ -1,0 +1,23 @@
+.report-container {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+  }
+  
+  .career-card {
+    background-color: #FFF4E6;
+    color: #333;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .match-score {
+    font-weight: bold;
+    color: #00539F;
+  }
+  
+  .salary {
+    font-style: italic;
+    color: #28a745;
+  }
