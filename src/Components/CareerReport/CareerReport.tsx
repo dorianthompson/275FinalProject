@@ -6,7 +6,6 @@ import Accordion from 'react-bootstrap/Accordion';
 
 
 function CareerReport() {
-  const [index, setIndex] = useState(0);
   const { state } = useLocation();
   let raw = state.data.choices[0]?.message?.content || '';
   raw = raw.trim();
