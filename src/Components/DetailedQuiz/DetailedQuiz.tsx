@@ -174,7 +174,7 @@ Important: Do NOT include markdown code block syntax like triple backticks. Just
                   value={answers[idx]}
                   onChange={(e) => handleChange(idx, e)}
                   isValid={seenSet.has(idx) && answers[idx].length >= 10}
-                  isInvalid={(answers[idx] != undefined) && answers[idx].length <= 10}
+                  isInvalid={(answers[idx] !== undefined) && answers[idx].length <= 10}
                 />
                 <Form.Control.Feedback type="invalid" tooltip>
         10 Character Minimum!
