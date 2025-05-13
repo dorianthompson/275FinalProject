@@ -140,7 +140,7 @@ Important: Do NOT include markdown code block syntax like triple backticks. Just
   />
 </div>
 
-      <Modal show={show} onHide={handleClose}>
+      <Modal show={show} onHide={handleClose} backdrop="static">
         <Modal.Header style={{ backgroundColor: '#00539F', color: '#FFD200'}} closeButton>
           <Modal.Title>Welcome to Our Basic Career Assessment!</Modal.Title>
         </Modal.Header>
