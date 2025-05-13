@@ -5,6 +5,7 @@
   }
   
   .career-card {
+    position: relative;
     background-color: #FFF4E6;
     color: #333;
     border: none;
