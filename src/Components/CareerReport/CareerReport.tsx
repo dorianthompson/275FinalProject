@@ -48,6 +48,7 @@ function CareerReport() {
                     </Accordion.Body>
                   </Accordion.Item>
                   </Accordion>
+
                 <Accordion alwaysOpen={true}>
                   <Accordion.Item eventKey={String(index)}>
                     <Accordion.Header>
@@ -55,6 +56,26 @@ function CareerReport() {
                     </Accordion.Header>
                     <Accordion.Body className='salary'>
                     💰{career.salary_range}
+                    </Accordion.Body>
+                  </Accordion.Item>
+                </Accordion>
+                <Accordion alwaysOpen={true}>
+                  <Accordion.Item eventKey={String(index)}>
+                    <Accordion.Header>
+                      Education
+                    </Accordion.Header>
+                    <Accordion.Body className='salary'>
+                    {career.education}
+                    </Accordion.Body>
+                  </Accordion.Item>
+                </Accordion>
+                <Accordion alwaysOpen={true}>
+                  <Accordion.Item eventKey={String(index)}>
+                    <Accordion.Header>
+                      Similar Careers
+                    </Accordion.Header>
+                    <Accordion.Body className='salary'>
+                    {career.similar_careers}
                     </Accordion.Body>
                   </Accordion.Item>
                 </Accordion>
