@@ -56,7 +56,7 @@ All files                    |       0 |        0 |       0 |       0 |
  src/Components/BasicQuiz    |       0 |        0 |       0 |       0 |                   
   BasicQuiz.tsx              |       0 |        0 |       0 |       0 | 8-171             
  src/Components/CareerReport |       0 |        0 |       0 |       0 |                   
-  CareerReport.tsx           |       0 |        0 |       0 |       0 | 6-30              
+  CareerReport.tsx           |       0 |        0 |       0 |       0 | 8-36              
  src/Components/DetailedQuiz |       0 |        0 |       0 |       0 |                   
   DetailedQuiz.tsx           |       0 |        0 |       0 |       0 | 13-175            
  src/Components/HomePage     |       0 |        0 |       0 |       0 |                   
@@ -69,5 +69,5 @@ All files                    |       0 |        0 |       0 |       0 |
 Test Suites: 1 failed, 1 total
 Tests:       0 total
 Snapshots:   0 total
-Time:        3.385 s
+Time:        3.335 s
 Ran all test suites.
