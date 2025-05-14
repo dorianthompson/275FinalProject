@@ -24,4 +24,15 @@
     box-shadow: inset 3px 3px 6px #b5b5b5, inset -3px -3px 6px #ffffff;
   }
 
+  .card {
+    border-radius: 20px;
+    background: #e0e5ec;
+    box-shadow: 9px 9px 16px #a3b1c6, -9px -9px 16px #ffffff;
+    transition: all 0.2s ease-in-out;
+    border: none;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+  }
+
   

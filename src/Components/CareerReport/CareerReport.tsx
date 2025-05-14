@@ -38,7 +38,7 @@ function CareerReport() {
               <Card.Body>
               <h2 style={{}}className="d-flex justify-content-between align-items-center">{career.title}<span className="match-score">{career.match_percentage}% match</span></h2>
               
-                <Accordion alwaysOpen>
+                <Accordion alwaysOpen={true}>
                   <Accordion.Item eventKey={String(index)}>
                     <Accordion.Header className="d-flex justify-content-between align-items-center">
                       Career Description
@@ -47,7 +47,8 @@ function CareerReport() {
                       {career.description}
                     </Accordion.Body>
                   </Accordion.Item>
-                
+                  </Accordion>
+                <Accordion alwaysOpen={true}>
                   <Accordion.Item eventKey={String(index)}>
                     <Accordion.Header>
                       Salary Range
