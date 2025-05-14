@@ -163,7 +163,7 @@ Important: Do NOT include markdown code block syntax like triple backticks. Just
       <Row xs={1} md={2} className="g-4">
         {DetailedAssessmentQuestions.map((question, idx) => (
           <Col key={idx}>
-            <Card style={{backgroundColor: '#FFD200', color: '#00539F'}}>
+            <Card className="card" style={{backgroundColor: '#FFD200', color: '#00539F'}}>
               <Card.Body>
                 <Card.Title style={{ fontWeight: 'bold' }}>{idx + 1}.</Card.Title>
                 <Card.Text>{question}</Card.Text>
