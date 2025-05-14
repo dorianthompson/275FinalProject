@@ -65,6 +65,8 @@ For each career path, provide:
 - A brief description (2-4 sentences max)
 - Estimated salary range (in USD)
 - A match percentage (0–100%)
+- Education
+- Similar Careers (3-4 options max)
 
 Return the results as a JSON array sorted by match percentage (descending).
 Return the results as a JSON array like this:
@@ -73,7 +75,9 @@ Return the results as a JSON array like this:
     "title": "Software Engineer",
     "description": "...",
     "salary_range": "$80,000 - $120,000",
-    "match_percentage": 90
+    "match_percentage": 90,
+    "education": "...",
+    "similar_careers": "..."
   }
 ]
 
